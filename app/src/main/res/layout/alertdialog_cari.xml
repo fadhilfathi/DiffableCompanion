@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lin1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TTL"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIK"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pekerjaan"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No. HP"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/tutup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tutup"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lienar2"
+        android:layout_toRightOf="@+id/lin1">
+        <TextView
+            android:id="@+id/namadialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/ttldialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TTL"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/nikdialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIK"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/jeniskelamindialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/alamatdialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/pekerjaandialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pekerjaan"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/nohpdialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No. HP"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Request"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+</RelativeLayout>

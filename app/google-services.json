@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "552641066450",
+    "firebase_url": "https://diffable-companion.firebaseio.com",
+    "project_id": "diffable-companion",
+    "storage_bucket": "diffable-companion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552641066450:android:55295abee354d616c6c40b",
+        "android_client_info": {
+          "package_name": "id.fathi.diffablecompanion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552641066450-mop71v2u4rddf1dj70m9p25bdm8g71re.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.fathi.diffablecompanion",
+            "certificate_hash": "285039afaf94b7700913d07a47c6e1e0f12befea"
+          }
+        },
+        {
+          "client_id": "552641066450-e4ofbp0457fvtvll9lgc4hql9vusp2fo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn3MdPBEavAslAbnO3D-L7Lc5eDVflsBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552641066450-e4ofbp0457fvtvll9lgc4hql9vusp2fo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
