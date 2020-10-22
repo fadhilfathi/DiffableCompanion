@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Adapter;
+package id.fathi.diffablecompanion.Controller.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -25,7 +25,7 @@ import java.util.List;
 import id.fathi.diffablecompanion.Model.Request;
 import id.fathi.diffablecompanion.Model.User;
 import id.fathi.diffablecompanion.R;
-import id.fathi.diffablecompanion.View.Activity.MapsActivity;
+import id.fathi.diffablecompanion.Controller.Activity.MapsActivity;
 
 public class RecyclerViewAdapterCompanion extends RecyclerView.Adapter<RecyclerViewAdapterCompanion.RecycleViewHolder>{
 
@@ -89,6 +89,8 @@ public class RecyclerViewAdapterCompanion extends RecyclerView.Adapter<RecyclerV
                                         companion.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
+                                                databaseReferenceDifabel.child(user.getId()).child("status").setValue("Tidak Perlu Pendamping");
+                                                databaseReferencePendamping.child(firebaseAuth.getCurrentUser().getUid()).child("status").setValue("Tidak Tersedia");
                                                 databaseReferenceCompanion.child(firebaseAuth.getCurrentUser().getUid()).child(user.getId()).child("status").setValue("companion");
                                                 databaseReferenceCompanion.child(user.getId()).child(firebaseAuth.getCurrentUser().getUid()).child("status").setValue("companion");
                                                 databaseReferenceCompanion.child(user.getId()).child(firebaseAuth.getCurrentUser().getUid()).child("id").setValue(firebaseAuth.getCurrentUser().getUid());
@@ -212,6 +214,8 @@ public class RecyclerViewAdapterCompanion extends RecyclerView.Adapter<RecyclerV
                                         companion.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View view) {
+                                                databaseReferenceDifabel.child(firebaseAuth.getCurrentUser().getUid()).child("status").setValue("Tidak Perlu Pendamping");
+                                                databaseReferencePendamping.child(user.getId()).child("status").setValue("Tidak Tersedia");
                                                 databaseReferenceCompanion.child(firebaseAuth.getCurrentUser().getUid()).child(user.getId()).child("status").setValue("companion");
                                                 databaseReferenceCompanion.child(user.getId()).child(firebaseAuth.getCurrentUser().getUid()).child("status").setValue("companion");
                                                 databaseReferenceCompanion.child(user.getId()).child(firebaseAuth.getCurrentUser().getUid()).child("id").setValue(firebaseAuth.getCurrentUser().getUid());

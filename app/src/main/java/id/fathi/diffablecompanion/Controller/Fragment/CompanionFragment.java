@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Fragment;
+package id.fathi.diffablecompanion.Controller.Fragment;
 
 
 import android.os.Bundle;
@@ -25,7 +25,7 @@ import java.util.List;
 
 import id.fathi.diffablecompanion.Model.Request;
 import id.fathi.diffablecompanion.R;
-import id.fathi.diffablecompanion.View.Adapter.RecyclerViewAdapterCompanion;
+import id.fathi.diffablecompanion.Controller.Adapter.RecyclerViewAdapterCompanion;
 
 
 /**

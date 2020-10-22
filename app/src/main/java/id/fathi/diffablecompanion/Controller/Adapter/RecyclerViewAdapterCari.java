@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Adapter;
+package id.fathi.diffablecompanion.Controller.Adapter;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -156,7 +156,7 @@ public class RecyclerViewAdapterCari extends RecyclerView.Adapter<RecyclerViewAd
         databaseReferenceDifabel.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild(uid)){
+                if (dataSnapshot.hasChild(uid)) {
                     databaseReferenceDifabel.child(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -189,15 +189,14 @@ public class RecyclerViewAdapterCari extends RecyclerView.Adapter<RecyclerViewAd
         databaseReferencePendamping.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild(uid)){
+                if (dataSnapshot.hasChild(uid)) {
                     databaseReferencePendamping.child(uid).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             temp = dataSnapshot.getValue(User.class);
                             Location start = new Location("");
                             start.setLatitude(temp.getLatitude());
-                            start.setLongitude(temp.getLongitude());
-                            Location end = new Location("");
+                            start.setLongitude(temp.getLongitude());Location end = new Location("");
                             end.setLatitude(user.get(position).getLatitude());
                             end.setLongitude(user.get(position).getLongitude());
 
@@ -218,8 +217,6 @@ public class RecyclerViewAdapterCari extends RecyclerView.Adapter<RecyclerViewAd
 
             }
         });
-
-
     }
 
     @Override

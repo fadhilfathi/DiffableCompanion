@@ -1,12 +1,10 @@
-package id.fathi.diffablecompanion.View.Activity;
+package id.fathi.diffablecompanion.Controller.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.renderscript.Sampler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -105,7 +103,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent chat = new Intent(MapsActivity.this,ChatActivity.class);
+                Intent chat = new Intent(MapsActivity.this, ChatActivity.class);
                 chat.putExtra("uid",uidreceiver);
                 startActivity(chat);
             }

@@ -1,9 +1,10 @@
-package id.fathi.diffablecompanion.View.Activity;
+package id.fathi.diffablecompanion.Controller.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.Manifest;
 import android.content.Intent;
@@ -20,7 +21,9 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import id.fathi.diffablecompanion.R;
-import id.fathi.diffablecompanion.View.Adapter.ViewPagerAdapter;
+import id.fathi.diffablecompanion.Controller.Adapter.ViewPagerAdapter;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -38,7 +41,7 @@ public class HomeActivity extends AppCompatActivity {
     Button logout;
     FirebaseAuth firebaseAuth;
     String uid, status;
-    DatabaseReference databaseReferenceDifabel, databaseReferencePendamping;
+    DatabaseReference databaseReferenceDifabel, databaseReferencePendamping, databaseReferenceCompanion;
     Location location;
     FusedLocationProviderClient fusedLocationProviderClient;
 
@@ -50,35 +53,48 @@ public class HomeActivity extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         databaseReferenceDifabel = FirebaseDatabase.getInstance().getReference("Difabel");
         databaseReferencePendamping = FirebaseDatabase.getInstance().getReference("Pendamping");
+        databaseReferenceCompanion = FirebaseDatabase.getInstance().getReference("Companion");
         firebaseAuth = FirebaseAuth.getInstance();
+
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabBar);
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        ViewPager2 viewPager2 = findViewById(R.id.viewPager);
+
         logout = (Button) findViewById(R.id.logout);
         switchStatus = (Switch) findViewById(R.id.switchStatus);
         textStatus = (TextView) findViewById(R.id.textStatus);
 
-        tabLayout.addTab(tabLayout.newTab());
-        tabLayout.addTab(tabLayout.newTab());
-
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(viewPagerAdapter);
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        viewPager2.setAdapter(new ViewPagerAdapter(this));
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                switch (position){
+                    case 0 : {
+                        tab.setText("Cari");
+                        break;
+                    }
+                    case 1 : {
+                        final BadgeDrawable badgeDrawable = tab.getOrCreateBadge();
+                        badgeDrawable.setVisible(false);
+                        tab.setText("Companion");
+                        databaseReferenceCompanion.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if (dataSnapshot.hasChild(firebaseAuth.getCurrentUser().getUid())){
+                                    badgeDrawable.setVisible(true);
+                                }
+                            }
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+                            }
+                        });
+                        break;
+                    }
+                }
             }
         });
+        tabLayoutMediator.attach();
 
         uid = FirebaseAuth.getInstance().getUid();
 
@@ -173,10 +189,10 @@ public class HomeActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             status = dataSnapshot.child(uid).child("status").getValue().toString().trim();
                             textStatus.setText(status);
-                            if (status.equals("Perlu Pendamping")){
+                            if (status.equals("Tersedia")){
                                 switchStatus.setChecked(true);
                             }
-                            if (status.equals("Tidak Perlu Pendamping")){
+                            if (status.equals("Tidak Tersedia")){
                                 switchStatus.setChecked(false);
                             }
                             switchStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

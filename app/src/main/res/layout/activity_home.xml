@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.Activity.HomeActivity">
+    tools:context=".Controller.Activity.HomeActivity">
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -28,22 +28,26 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
         <Button
+            android:backgroundTint="@color/colorAccent"
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout"/>
+            android:text="Logout" />
 
     </LinearLayout>
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/linear">
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"/>
-    </androidx.viewpager.widget.ViewPager>
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_below="@+id/linear"/>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabBar"
+        >
+
+    </androidx.viewpager2.widget.ViewPager2>
 </RelativeLayout>

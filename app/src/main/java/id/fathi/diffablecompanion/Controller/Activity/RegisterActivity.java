@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Activity;
+package id.fathi.diffablecompanion.Controller.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(RegisterActivity.this, "Registrasi Berhasil, Silahkan Cek Email Anda", Toast.LENGTH_SHORT).show();
-                    Intent login = new Intent(RegisterActivity.this,LoginActivity.class);
+                    Intent login = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(login);
                     finish();
                 }

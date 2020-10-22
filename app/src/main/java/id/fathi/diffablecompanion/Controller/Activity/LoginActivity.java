@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Activity;
+package id.fathi.diffablecompanion.Controller.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void daftar(){
-        Intent regist = new Intent(LoginActivity.this,RegisterActivity.class);
+        Intent regist = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(regist);
     }
 

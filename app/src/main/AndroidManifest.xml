@@ -11,10 +11,10 @@
         android:theme="@style/AppTheme">
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key"/>
-        <activity android:name=".View.Activity.ChatActivity"></activity>
-        <activity android:name=".View.Activity.MapsActivity" />
-        <activity android:name=".View.Activity.HomeActivity" />
-        <activity android:name=".View.Activity.LoginActivity">
+        <activity android:name=".Controller.Activity.ChatActivity"></activity>
+        <activity android:name=".Controller.Activity.MapsActivity" />
+        <activity android:name=".Controller.Activity.HomeActivity" />
+        <activity android:name=".Controller.Activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.Activity.RegisterActivity"
+            android:name=".Controller.Activity.RegisterActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
     </application>

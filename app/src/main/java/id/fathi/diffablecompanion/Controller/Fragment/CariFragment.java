@@ -1,4 +1,4 @@
-package id.fathi.diffablecompanion.View.Fragment;
+package id.fathi.diffablecompanion.Controller.Fragment;
 
 
 import android.os.Bundle;
@@ -25,7 +25,7 @@ import java.util.List;
 
 import id.fathi.diffablecompanion.Model.User;
 import id.fathi.diffablecompanion.R;
-import id.fathi.diffablecompanion.View.Adapter.RecyclerViewAdapterCari;
+import id.fathi.diffablecompanion.Controller.Adapter.RecyclerViewAdapterCari;
 
 
 /**
@@ -84,7 +84,9 @@ public class CariFragment extends Fragment {
                             user.clear();
                             for (DataSnapshot postSnapshot : dataSnapshot.getChildren()){
                                 User temp = postSnapshot.getValue(User.class);
-                                user.add(temp);
+                                if (temp.getStatus().equals("Tersedia") || temp.getStatus().equals("Perlu Pendamping")) {
+                                    user.add(temp);
+                                }
                             }
                             recyclerViewAdapterCari.notifyDataSetChanged();
                         }
